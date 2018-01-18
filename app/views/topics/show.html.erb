@@ -1,5 +1,28 @@
 <%= @topic.title %><br /><br />
 
-<% @topic.children.each do |child| %>
-  <%= child.title %><br />
-<% end %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>ID</th>
+    <th></th>
+    <th>Level</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @topic.children.each do |child| %>
+    <tr>
+      <td><%= child.title %></td>
+      <td><%= child.id %></td>
+      <td></td>
+      <td><%= child.parent_id %></td>
+      <td><%= link_to 'Show', child %></td>
+      <td><%= link_to "Edit topic", edit_topic_path(child) %></td>
+      <td><%= link_to "Delete topic", child, method: :delete, data: {confirm: 'Are you sure?' } %></td></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to "New topic", new_topic_path %>

@@ -3,8 +3,9 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Level</th>
+    <th>ID</th>
     <th></th>
+    <th>Level</th>
     <th></th>
     <th></th>
   </tr>
@@ -12,6 +13,8 @@
 <% @topics.each do |topic| %>
   <tr>
     <td><%= topic.title %></td>
+    <td><%= topic.id %></td>
+    <td></td>
     <td><%= topic.parent_id %></td>
     <td><%= link_to 'Show', topic %></td>
     <td><%= link_to "Edit topic", edit_topic_path(topic) %></td>
