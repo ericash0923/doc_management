@@ -1,14 +1,3 @@
-<%= @all.inspect %>
-<hr>
-<hr>
-<%= @topic.inspect %>
-<hr>
-<hr>
-<%= @subtopic.inspect %>
-<hr>
-<hr>
-<% @topic.each do |item| %>
-    <% item.children.each do |x|%>
-      <%= x.title %>
-    <% end %>
-<% end %>
+<%= @topic.inspect %><br>
+
+<%= link_to "New topic", new_topic_path %>
