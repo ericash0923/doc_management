@@ -1,4 +1,11 @@
 <%= @topic.title %><br /><br />
+<%= @topic.parent_id %>
+
+  <% if @topic.root? %>
+    <%= link_to "Back", root_path %>
+  <% else %>
+    <%= link_to "Back", topic_path(@topic.parent_id) %>
+  <% end %>
 
 <table>
   <tr>
