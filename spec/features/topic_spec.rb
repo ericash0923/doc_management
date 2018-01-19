@@ -39,9 +39,7 @@ describe 'creation' do
     it 'can be created from new form page' do
       visit new_topic_path
       fill_in 'topic[title]', with: 'Some topic'
-      click_on "Create Topic"
-  
-      expect(page).to have_content("Some topic")
+      expect { click_on "Create Topic"}.to change(Topic, :count).by(1)
     end
     
     it 'id pass into new action' do
