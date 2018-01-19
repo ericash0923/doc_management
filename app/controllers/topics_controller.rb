@@ -1,10 +1,10 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.roots
   end
   
   def new
-    @topic = Topic.new
+    @topic = Topic.new(parent_id: params[:parent_id])
   end
   
   def show

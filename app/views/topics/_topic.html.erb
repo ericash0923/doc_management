@@ -1,9 +1,9 @@
+<%= @topic.title %>
+
 <%= form_for(@topic) do |f| %>
 
   <div class="field">
-    <%= f.label :parent_id %><br />
-    <%= f.collection_select :parent_id, Topic.order(:title), :id, :title, 
-    include_blank: true%>
+    <%= f.hidden_field :parent_id %>
   </div>
   
   <br>

@@ -1,5 +1,4 @@
 <%= @topic.title %><br /><br />
-<%= @topic.parent_id %>
 
   <% if @topic.root? %>
     <%= link_to "Back", root_path %>
@@ -32,4 +31,4 @@
 
 <br />
 
-<%= link_to "New topic", new_topic_path %>
+<%= link_to "New topic", new_topic_path(:parent_id => @topic) %>
