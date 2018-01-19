@@ -1,4 +1,4 @@
-<%= @topic.title %><br /><br />
+<%= @topic.title %><br><br>
 
   <% if @topic.root? %>
     <%= link_to "Back", root_path %>
@@ -29,6 +29,6 @@
   <% end %>
 </table>
 
-<br />
+<br>
 
-<%= link_to "New topic", new_topic_path(:parent_id => @topic) %>
+<%= link_to "New topic", new_topic_path(parent_id: @topic) %>
