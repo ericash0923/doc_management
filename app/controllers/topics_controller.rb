@@ -20,7 +20,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
     
     if @topic.save
-      redirect_to root_path, notice: "Your topic was created successfully"
+      redirect_to @topic, notice: "Your topic was created successfully"
     else 
       render :new
     end
