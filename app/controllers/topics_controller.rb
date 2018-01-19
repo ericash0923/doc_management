@@ -1,4 +1,6 @@
 class TopicsController < ApplicationController
+  before_action :set_topic, only: [:show, :edit, :update, :destroy]
+  
   def index
     @topics = Topic.roots
   end
@@ -8,7 +10,6 @@ class TopicsController < ApplicationController
   end
   
   def show
-    @topic = Topic.find(params[:id])
   end
   
   def edit
@@ -17,6 +18,7 @@ class TopicsController < ApplicationController
   
   def create
     @topic = Topic.new(topic_params)
+    
     if @topic.save
       redirect_to root_path, notice: "Your topic was created successfully"
     else 
@@ -25,7 +27,6 @@ class TopicsController < ApplicationController
   end
   
   def update
-    @topic = Topic.find(params[:id])
     
     if @topic.update(topic_params)
       redirect_to root_path, notice: 'Your topic was edited successfully'
@@ -35,13 +36,15 @@ class TopicsController < ApplicationController
   end
   
   def destroy
-    @topic = Topic.find(params[:id])
     @topic.destroy
-    
     redirect_to root_path, notice: 'Your topic was deleted successfully'
   end
   
   private
+  
+  def set_topic
+    @topic = Topic.find(params[:id])
+  end
   
   def topic_params
     params.require(:topic).permit(:title, :parent_id)
