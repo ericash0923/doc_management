@@ -1,0 +1,18 @@
+<%= form_for(@document) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <br>
+  
+  <div class="field">
+    <%= f.label "Topic" %><br />
+    <%= f.collection_select :topic_id, Topic.order(:title), :id, :title %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

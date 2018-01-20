@@ -13,7 +13,6 @@ class TopicsController < ApplicationController
   end
   
   def edit
-    @topic = Topic.find(params[:id])
   end
   
   def create
@@ -31,7 +30,7 @@ class TopicsController < ApplicationController
     if @topic.update(topic_params)
       redirect_to root_path, notice: 'Your topic was edited successfully'
     else
-      :edit
+      render :edit
     end
   end
   
