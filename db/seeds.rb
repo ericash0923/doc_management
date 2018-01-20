@@ -1,7 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+5.times do  |topic|
+ Topic.create!(title: "Topic #{topic}")
+ 
+  2.times do |subtopic|
+   Topic.create!(title: "SubTopic #{subtopic}", parent_id: (topic + 1))
+
+    1.times do |three|
+     Topic.create!(title: "SubTopic #{three}", parent_id: (subtopic + 1))
+    end
+  end
+end
+
+puts "5 root, subfolder and third level folder"
