@@ -15,4 +15,9 @@ RSpec.describe Topic, type: :model do
       expect(@topic).to_not be_valid
     end
   end
+  
+  describe "Associations" do
+    it { should have_many(:documents) }
+    it { should have_many(:documents).dependent(:destroy) }
+  end
 end
