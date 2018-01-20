@@ -1,0 +1,11 @@
+<% @topics.each do |topic| %>
+  <tr>
+    <td><%= topic.title %></td>
+    <td><%= topic.id %></td>
+    <td></td>
+    <td><%= topic.parent_id %></td>
+    <td><%= link_to 'Show', topic %></td>
+    <td><%= link_to "Edit topic", edit_topic_path(topic) %></td>
+    <td><%= link_to "Delete topic", topic, method: :delete, id: "delete_topic_#{topic.id}_from_index", data: {confirm: 'Are you sure?' } %></td></td>
+  </tr>
+<% end %>

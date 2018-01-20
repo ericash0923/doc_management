@@ -32,3 +32,9 @@
 <br>
 
 <%= link_to "New topic", new_topic_path(parent_id: @topic) %>
+
+<h1>Doc</h1>
+
+<% @topic.documents.each do |doc| %>
+  <p><%= doc.name %></p>
+<% end %>
