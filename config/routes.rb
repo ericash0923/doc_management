@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :topics
   
   namespace :admin do
-    resources :documents
     resources :topics
   end
   

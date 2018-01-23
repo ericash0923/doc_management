@@ -1,4 +1,4 @@
-class Admin::TopicsController < ApplicationController
+class Admin::TopicsController < Admin::AdminController
   before_action :set_admin_topic, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -19,7 +19,7 @@ class Admin::TopicsController < ApplicationController
     @admin_topic = Topic.new(admin_topic_params)
 
     if @admin_topic.save
-      redirect_to [:admin, @admin_post], notice: 'Topic was successfully created.'
+      redirect_to [:admin, @admin_topic], notice: 'Topic was successfully created.'
     else
       render :new 
     end
@@ -27,7 +27,7 @@ class Admin::TopicsController < ApplicationController
 
   def update
     if @admin_topic.update(admin_topic_params)
-     redirect_to [:admin, @admin_post], notice: 'Topic was successfully updated.'
+     redirect_to [:admin, @admin_topic], notice: 'Topic was successfully updated.'
     else
       render :edit 
     end
@@ -35,7 +35,7 @@ class Admin::TopicsController < ApplicationController
 
   def destroy
     @admin_topic.destroy
-      redirect_to [:admin, @admin_post], notice: 'Topic was successfully destroyed.' 
+      redirect_to [:admin, @admin_topic], notice: 'Topic was successfully destroyed.' 
   end
 
   private
