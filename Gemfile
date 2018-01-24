@@ -44,3 +44,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'ancestry', '~> 3.0', '>= 3.0.1'
 gem 'devise', '~> 4.4'
 gem 'bootstrap', '~> 4.0.0'
+gem 'carrierwave', '~> 1.2', '>= 1.2.2'

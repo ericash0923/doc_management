@@ -1,6 +1,10 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:destroy]
   
+  def index
+    @documents = Document.all
+  end
+  
   def new
     @document = Document.new
   end
@@ -9,7 +13,7 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     
     if @document.save
-      redirect_to root_path, notice: "Your document was created successfully"
+      redirect_to root_path, notice: "Your document #{@document.name} has been uploader"
     else 
       render :new
     end
@@ -17,7 +21,7 @@ class DocumentsController < ApplicationController
   
   def destroy
     @document.destroy
-    redirect_to root_path, notice: 'Your document was deleted successfully'
+    redirect_to root_path, notice: "Your #{@document.name} was deleted successfully"
   end
   
   private
@@ -27,6 +31,6 @@ class DocumentsController < ApplicationController
   end
   
   def document_params
-    params.require(:document).permit(:name, :topic_id)
+    params.require(:document).permit(:name, :attachment, :topic_id)
   end
 end
