@@ -1,9 +1,18 @@
 <% topics.each do |topic| %>
   <div class="col-md-2">
-    <div class="card">
-      <div class="card-body">
-        <%= link_to topic.title, [:admin, topic], class: 'folder-link' %>
+    <div class="btn-group">
+      <button type="button" class="btn btn-secondary"><%= link_to topic.title, [:admin, topic], class: 'btn btn-secondary' %></button>
+        
+      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="sr-only"></span>
+      </button>
+      <div class="dropdown-menu">
+        <%= link_to 'Edit', edit_admin_topic_path(topic), class: 'dropdown-item' %>
+        <%= link_to 'Delete', [:admin, topic], method: :delete, data: { confirm: 'Are you sure?' }, class: 'dropdown-item' %>
       </div>
     </div>
   </div>
 <% end %>
+
+
+

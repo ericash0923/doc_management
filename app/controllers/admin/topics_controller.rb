@@ -9,7 +9,7 @@ class Admin::TopicsController < Admin::AdminController
   end
 
   def new
-    @admin_topic = Topic.new
+    @admin_topic = Topic.new(parent_id: params[:parent_id])
   end
 
   def edit
