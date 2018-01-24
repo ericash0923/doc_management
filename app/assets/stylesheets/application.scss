@@ -1,0 +1,11 @@
+@import 'bootstrap';
+@import 'dashboard';
+
+
+.alert-notice {
+  @extend .alert-info;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}

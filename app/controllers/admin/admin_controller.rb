@@ -1,4 +1,4 @@
 class Admin::AdminController < ActionController::Base
   before_action :authenticate_admin!
-  layout 'application'
+  layout 'admin'
 end
