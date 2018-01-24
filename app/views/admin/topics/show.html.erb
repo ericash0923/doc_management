@@ -2,10 +2,10 @@
 
 <br>
 
-
   <div class="row">
       <%= render 'folders', topics: @admin_topic.children %>
   </div>
+  
 <br>
 
 <%= link_to 'New Folder', new_admin_topic_path(parent_id: @admin_topic) %> |
