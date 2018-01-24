@@ -37,6 +37,15 @@ class Admin::TopicsController < Admin::AdminController
     @admin_topic.destroy
       redirect_to [:admin, @admin_topic], notice: 'Topic was successfully destroyed.' 
   end
+  
+  # def destroy
+  #   byebug
+  #   @admin_topic.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to [:admin, @admin_topic], notice: 'Post was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     def set_admin_topic
