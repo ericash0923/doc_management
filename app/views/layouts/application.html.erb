@@ -8,7 +8,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class= 'bg-light'>
+    <%= render 'shared/admin_masthead' %>
+  
+      <div class="container">
+        
+    
+          <%= yield %>
+          
+        
+      </div>
   </body>
 </html>
