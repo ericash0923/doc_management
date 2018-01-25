@@ -1,24 +1,16 @@
-<%= @topic.title %><br><br>
 
-  <% if @topic.root? %>
-    <%= link_to "Back", root_path %>
-  <% else %>
-    <%= link_to "Back", topic_path(@topic.parent_id) %>
+<div class="d-flex m-3">
+  <div class="p-2 mr-auto"><h2><%= @topic.title %></h2></div>
+  <div class="p-3">
+    <% if @topic.root? %>
+      <%= link_to "Back", root_path, class: "btn btn-outline-primary square" %>
+    <% else %>
+      <%= link_to "Back", topic_path(@topic.parent_id), class: "btn btn-outline-primary square" %>
   <% end %>
+  </div>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>ID</th>
-    <th></th>
-    <th>Level</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<%= render 'topic_child' %>
-
-</table>
+  <%= render 'topic', topics: @topic.children  %>
 
 <br>
 

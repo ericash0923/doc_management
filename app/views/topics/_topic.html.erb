@@ -1,12 +1,16 @@
-<% @topics.each do |topic| %>
-  <tr>
-    <td><%= topic.title %></td>
-    <td><%= topic.id %></td>
-    <td></td>
-    <td><%= topic.parent_id %></td>
-    <td><%= link_to 'Show', topic %></td>
-    <td><%= link_to "Edit topic", edit_topic_path(topic) %></td>
-    <td><%= link_to "Delete topic", topic, method: :delete, id: "delete_topic_#{topic.id}_from_index", data: {confirm: 'Are you sure?' } %></td></td>
-  </tr>
-<% end %>
-
+<div class="row">
+  <% topics.each do |topic| %>
+  	<div class="col-md-3 col-sm-4">
+  	  <div class="wrimagecard wrimagecard-topimage">
+          <a href="<%= topic_path(topic) %>">
+            <div class="wrimagecard-topimage_header" style="background-color:  rgba(51, 105, 232, 0.1)">
+              <center><i class="fa fa-folder-open-o" style="color:#3369e8"></i></center>
+            </div>
+            <div class="wrimagecard-topimage_title">
+              <h4><%= topic.title %><h4>
+            </div>
+          </a>
+      </div>
+    </div>
+  <% end %>
+</div>
