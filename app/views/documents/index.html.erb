@@ -11,7 +11,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Download Link</th>
+      <th>Pdf Link</th>
+      <th>Preview</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
       <tr>
         <td><%= doc.name %></td>
         <td><%= link_to "Download Doc", doc.attachment_url %></td>
+        <td><%= image_tag doc.attachment.preview.url if doc.attachment.present? %></td>
         <td><%= button_to "Delete",  doc, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{doc.name}?" %></td>
       </tr>
     <% end %>

@@ -1,4 +1,6 @@
 class AttachmentUploader < CarrierWave::Uploader::Base
+  include CarrierWave::RMagick
+  
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -42,4 +44,20 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  
+  def cover
+    manipulate! do |frame, index|
+      frame if index.zero? # take only the first page of the file
+    end
+  end
+
+  version :preview do
+    process :cover
+    process :resize_to_fit => [310, 438]
+    process :convert => :jpg
+
+    def full_filename for_file = model.source.file
+      super.chomp(File.extname(super)) + '.jpg'
+    end
+  end
 end
