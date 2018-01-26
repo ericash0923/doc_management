@@ -53,7 +53,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
 
   version :preview do
     process :cover
-    process :resize_to_fit => [310, 438]
+    process :resize_to_fit => [200, 150]
     process :convert => :jpg
 
     def full_filename for_file = model.source.file
