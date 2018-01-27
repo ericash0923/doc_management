@@ -1,0 +1,20 @@
+<% @topic.documents.each do |doc| %>
+  <div class="col-md-2 col-sm-4">
+    <div class="card my-2">
+    <a href="<%= doc.attachment_url %>">
+    <% if doc.attachment.present? && doc.attachment.preview.url.present? %>
+        <div class="card-img-top">
+            <%= image_tag doc.attachment.preview.url, class: "img-fluid" %>
+        </div>
+      <% else %>
+        <div class="card-body text-center" style="padding: 30px 0; background-color: rgba(51, 105, 232, 0.1);">
+          <h2 class="text-primary"><i class="fa fa-file-word-o fa-2x" style="color:#3369e8;"></i></h2>
+        </div>
+      <% end %>
+        <div class="card-body">
+            <p class="card-text"><%= doc.name %></p>
+        </div>
+      </a>
+    </div>
+  </div>
+<% end %>

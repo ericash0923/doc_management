@@ -51,13 +51,20 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     end
   end
 
-  version :preview do
+  version :preview, if: :imageable? do
     process :cover
-    process :resize_to_fit => [200, 150]
+    process :resize_to_fill => [180, 150]
     process :convert => :jpg
 
     def full_filename for_file = model.source.file
       super.chomp(File.extname(super)) + '.jpg'
     end
+  end
+  
+  def imageable?(new_file)
+    # is_image = new_file.content_type.start_with? 'image'
+    is_pdf = new_file.content_type.end_with? 'pdf'
+    # is_image || 
+    is_pdf
   end
 end
