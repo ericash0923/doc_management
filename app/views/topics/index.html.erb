@@ -12,11 +12,9 @@
 
 <br>
 
-<% @documents.each do |doc| %>
-  <p><%= doc.name %></p>
-  <p><td><%= link_to "Delete Doc", doc, method: :delete, id: "delete_document_#{doc.id}_from_index", data: {confirm: 'Are you sure?' } %></p>
-<% end %>
-
+  <div class="row">
+   <%= render 'documents', documents: @recent %>
+  </div>
 
 
 

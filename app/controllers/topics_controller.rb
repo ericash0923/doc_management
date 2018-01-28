@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
   
   def index
     @topics = Topic.roots
-    @documents = Document.where(topic_id: [nil, ""])
+    @recent = Document.order(created_at: :desc).limit(5)
   end
   
   def new
