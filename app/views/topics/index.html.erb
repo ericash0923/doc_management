@@ -6,12 +6,9 @@
 
   <%= render 'topic', topics: @topics  %>
 
-
-
-<%= link_to "New topic", new_topic_path(:parent_id => @topic) %>
-
 <br>
 
+<h3>Recently uploaded</h3>
   <div class="row">
    <%= render 'documents', documents: @recent %>
   </div>
