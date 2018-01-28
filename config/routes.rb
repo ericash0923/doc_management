@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :topics
+    resources :documents
   end
   
   root to: 'topics#index'

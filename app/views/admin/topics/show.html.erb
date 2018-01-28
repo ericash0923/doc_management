@@ -9,6 +9,7 @@
 <br>
 
 <%= link_to 'New Folder', new_admin_topic_path(parent_id: @admin_topic) %> |
+<%= link_to 'New Document', new_admin_document_path(parent_id: @admin_topic) %> |
 
 <% if @admin_topic.root? %>
   <%= link_to "Back", admin_path %>
@@ -16,8 +17,25 @@
   <%= link_to "Back", admin_topic_path(@admin_topic.parent_id) %>
 <% end %>
 
-<% @admin_topic.documents.each do |doc| %>
-  <p><%= doc.name %></p>
-  <p><td><%= link_to "Delete Doc", doc, method: :delete, id: "delete_document_#{doc.id}_from_index", data: {confirm: 'Are you sure?' } %></p>
-<% end %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Pdf Link</th>
+      <th>&nbsp;</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @admin_topic.documents.each do |doc| %>
+      <tr>
+        <td><%= doc.name %></td>
+        <td><%= link_to "Download Doc", doc.attachment_url %></td>
+        <td><%= doc.inspect %></td>
+        <td><%= button_to "Delete", [:admin, doc], method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure that you wish to delete #{doc.name}?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 

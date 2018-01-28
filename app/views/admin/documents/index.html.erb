@@ -1,0 +1,29 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+<br />
+<%= link_to "New Document", new_document_path, class: "btn btn-primary" %>
+<br />
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Pdf Link</th>
+      <th>Preview</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @documents.each do |doc| %>
+      <tr>
+        <td><%= doc.name %></td>
+        <td><%= link_to "Download Doc", doc.attachment_url %></td>
+        <td></td>
+        <td><%= button_to "Delete", doc, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure that you wish to delete #{doc.name}?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
