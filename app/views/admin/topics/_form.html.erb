@@ -10,13 +10,29 @@
     </div>
   <% end %>
   
+  <div class="field">
+    <%= f.hidden_field :parent_id %>
+  </div>
+  
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
+  
+  <div class="form-group">
+    <%= f.label "Folder" %><br />
+    <%= f.collection_select(:parent_id, Topic.order(:title), :id, :title, 
+                            {
+                              include_blank:true
+                            },
+                            class: 'form-control'
+                            )
+    %>
+  </div>
 
   <div class="form-group">
-    <%= f.submit class: 'btn btn-default' %>
+    <%= f.submit 'Save', class: 'btn btn-primary' %>
   </div>
+  
   
 <% end %>
