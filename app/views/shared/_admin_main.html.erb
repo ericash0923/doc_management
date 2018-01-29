@@ -6,6 +6,13 @@
     <div class="btn-group mr-2">
       <%= button_to 'New Folder', new_admin_topic_path, class: "btn btn-sm btn-outline-secondary", method: :get, params: {parent_id: topic } %>
       <%= button_to 'New Document', new_admin_document_path, class: "btn btn-sm btn-outline-secondary", method: :get, params: {parent_id: topic } %>
+      <% if topic.present? %>
+        <% if @admin_topic.root? %>
+          <%= button_to 'Back', admin_path, class: 'btn btn-sm btn-outline-dark', method: :get %>
+            <% else %>
+          <%= button_to 'Back', admin_topic_path(@admin_topic.parent_id), class: 'btn btn-sm btn-outline-dark', method: :get %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
