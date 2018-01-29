@@ -1,6 +1,10 @@
 class Admin::DocumentsController < Admin::AdminController
   before_action :set_document, only: [:edit, :update, :destroy]
   
+  def index
+    @admin_documents = Document.order('name ASC')
+  end
+  
   def new
     @admin_document = Document.new(topic_id: params[:topic_id])
   end
