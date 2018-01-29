@@ -2,7 +2,7 @@ class Admin::TopicsController < Admin::AdminController
   before_action :set_admin_topic, only: [:show, :edit, :update, :destroy]
 
   def index
-    @admin_topics = Topic.roots
+    @admin_topics = Topic.arrange_as_array({:order => 'title'})
   end
 
   def show

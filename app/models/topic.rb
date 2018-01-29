@@ -1,4 +1,5 @@
 class Topic < ApplicationRecord
+  include Tree
   has_ancestry
   
   has_many :documents, dependent: :destroy
