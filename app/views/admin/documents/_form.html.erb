@@ -1,5 +1,9 @@
 <%= form_for([:admin, @admin_document]) do |f| %>
 
+  <div class="field">
+    <%= f.hidden_field :topic_id %>
+  </div>
+
   <div class="form-group">
     <%= f.label :name %><br />
     <%= f.text_field :name, class: 'form-control' %>
@@ -11,8 +15,14 @@
   </div>
   
   <div class="form-group">
-    <%= f.label "Topic" %><br />
-    <%= f.collection_select :topic_id, Topic.order(:title), :id, :title, include_blank: true, class: 'form-control' %>
+    <%= f.label "Folder" %><br />
+    <%= f.collection_select(:topic_id, Topic.all, :id, :name_for_selects, 
+                            {
+                              include_blank: :true
+                            },
+                            class: 'form-control'
+                            )
+    %>
   </div>
   
   <div class="form-group">
