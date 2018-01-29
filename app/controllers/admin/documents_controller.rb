@@ -1,8 +1,11 @@
 class Admin::DocumentsController < Admin::AdminController
-  before_action :set_document, only: [:destroy]
+  before_action :set_document, only: [:edit, :update, :destroy]
   
   def new
     @admin_document = Document.new(topic_id: params[:topic_id])
+  end
+  
+  def edit
   end
   
   def create

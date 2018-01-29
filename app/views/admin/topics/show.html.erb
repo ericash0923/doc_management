@@ -19,7 +19,9 @@
         <td><%= doc.name %></td>
         <td><%= link_to "Download Doc", doc.attachment_url %></td>
         <td><%= doc.inspect %></td>
-        <td><%= button_to "Delete", [:admin, doc], method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure that you wish to delete #{doc.name}?" } %></td>
+        <td><h5>
+            <%= link_to fa_icon('pencil-square-o'), edit_admin_document_path(doc) %>
+            <%= link_to fa_icon('trash'), [:admin, doc], method: :delete, data: { confirm: 'Are you sure?' } %></h5></td>
       </tr>
     <% end %>
   </tbody>
