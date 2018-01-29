@@ -29,8 +29,13 @@
         <% end %>
       </div>
       
-      <%= render 'shared/admin_main' %>
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        
+        <%= render partial: 'shared/admin_main', locals: { topic: @admin_topic } %>
       
+        <%= yield %>
+      
+      </main>
       
     </div>
   </div>
