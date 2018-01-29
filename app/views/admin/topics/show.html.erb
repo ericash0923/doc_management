@@ -1,15 +1,8 @@
   <div class="row">
-      <%= render 'folders', topics: @admin_topic.children %>
+      <%= render 'folder', topics: @admin_topic.children %>
   </div>
   
 <br>
-
-<% if @admin_topic.root? %>
-  <%= link_to "Back", admin_path %>
-<% else %>
-  <%= link_to "Back", admin_topic_path(@admin_topic.parent_id) %>
-<% end %>
-
 
 <table class="table table-bordered table-striped">
   <thead>

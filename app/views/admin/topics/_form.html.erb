@@ -1,9 +1,9 @@
 <%= form_for([:admin, @admin_topic]) do |f| %>
-  <% if admin_topic.errors.any? %>
+  <% if @admin_topic.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(admin_topic.errors.count, "error") %> prohibited this admin_topic from being saved:</h2>
+      <h2><%= pluralize(@admin_topic.errors.count, "error") %> prohibited this admin_topic from being saved:</h2>
       <ul>
-      <% admin_topic.errors.full_messages.each do |message| %>
+      <% @admin_topic.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -21,9 +21,9 @@
   
   <div class="form-group">
     <%= f.label "Folder" %><br />
-    <%= f.collection_select(:parent_id, Topic.order(:title), :id, :title, 
+    <%= f.collection_select(:parent_id, Topic.all, :id, :name_for_selects, 
                             {
-                              include_blank:true
+                              include_blank: :true
                             },
                             class: 'form-control'
                             )

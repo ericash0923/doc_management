@@ -1,7 +1,31 @@
 <h3>Folders</h3>
 
+<br>
+
   <div class="row">
-    <%= render 'folders' %>
+    
   </div>
+  
+  <table class='table table-bordered table-striped'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Parent</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_topics.each do |folder| %>
+    <tr>
+      <td><%= folder.name_for_tree %></td>
+      <td><%= folder.parent ? folder.parent.title : '---' %></td>
+      <td><h5><%= link_to fa_icon('file-text'), [:admin, folder] %> 
+              <%= link_to fa_icon('pencil-square-o'), edit_admin_topic_path(folder) %>
+              <%= link_to fa_icon('trash'), [:admin, folder], method: :delete, data: { confirm: 'Are you sure?' } %></h5></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
