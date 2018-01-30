@@ -4,4 +4,8 @@ class Document < ApplicationRecord
   belongs_to :topic
   
   validates_presence_of :name
+  
+  def self.most_recent(limit)
+    order("created_at desc").limit(limit)
+  end
 end
