@@ -16,7 +16,7 @@
   
   <div class="form-group">
     <%= f.label "Folder" %><br />
-    <%= f.collection_select(:topic_id, Topic.all, :id, :name_for_selects, 
+    <%= f.collection_select(:topic_id, Topic.arrange_as_array, :id, :name_for_selects, 
                             {
                               include_blank: :true
                             },
