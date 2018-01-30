@@ -47,3 +47,4 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 gem 'rmagick'
 gem "font-awesome-rails"
+gem 'ransack', '~> 1.8', '>= 1.8.6'

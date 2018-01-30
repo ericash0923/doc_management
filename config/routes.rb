@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admin', skip: :registrations
   
   get 'admin' => 'admin/topics#index'
+  get 'search' => 'search#index'
   
   resources :documents
   resources :topics

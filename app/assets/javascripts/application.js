@@ -15,4 +15,5 @@
 //= require popper
 //= require bootstrap
 //= require turbolinks
+//= require jquery.easy-autocomplete.min
 //= require_tree .
