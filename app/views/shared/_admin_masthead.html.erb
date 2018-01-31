@@ -5,9 +5,8 @@
     <%= link_to 'Home', root_path, class: "navbar-brand col-sm-3 col-md-2 mr-0" %>
   <% end %>
   
-    <%= form_tag("/search", local: true, method: :get, class: 'form-inline my-2 my-lg-0') do %>
-      <%= text_field_tag(:q, nil, data: { behavior: "autocomplete" }, placeholder: 'Search', class: "form-control form-control-dark w-70") %>
-      <%= button_tag("Search", class: "btn btn-outline-success", type:'submit') %>
+    <%= form_tag("/search", local: true, method: :get, class: 'form-inline w-100') do %>
+      <%= text_field_tag(:q, nil, data: { behavior: "autocomplete" }, placeholder: 'Search', class: "form-control form-control-dark w-100") %>
     <% end %>
       
   <ul class="navbar-nav px-3">
