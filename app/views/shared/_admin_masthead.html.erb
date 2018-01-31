@@ -4,7 +4,12 @@
   <% else %>
     <%= link_to 'Home', root_path, class: "navbar-brand col-sm-3 col-md-2 mr-0" %>
   <% end %>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  
+    <%= form_tag("/search", local: true, method: :get, class: 'form-inline my-2 my-lg-0') do %>
+      <%= text_field_tag(:q, nil, data: { behavior: "autocomplete" }, placeholder: 'Search', class: "form-control form-control-dark w-70") %>
+      <%= button_tag("Search", class: "btn btn-outline-success", type:'submit') %>
+    <% end %>
+      
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <% if admin_signed_in? %>
