@@ -1,13 +1,14 @@
 class SearchController < ApplicationController
-  before_action :force_json, only: :index
+  layout 'application'
   
   def index
     @documents = Document.ransack(name_cont: params[:q]).result(distinct:true).limit(5)
-  end
-  
-  private
-  
-  def force_json
-    request.format = :json
+    
+    respond_to do |format|
+      format.html {}
+      format.json {
+        @documents = @documents.limit(5)
+      }
+    end
   end
 end
