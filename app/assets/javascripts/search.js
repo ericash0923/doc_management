@@ -9,13 +9,19 @@ document.addEventListener('turbolinks:load', function() {
     categories: [
       {
         listLocation: "documents",
-        header: "<strong>Movies</strong>",
       }
     ],
+    template: {
+        type: "description",
+        fields: {
+            description: "folder"
+        }
+    },
     list: {
       onChooseEvent: function() {
         var url = $input.getSelectedItemData().url
-        console.log(url)
+        $input.val("")
+        Turbolinks.visit(url)
       }
     }
   }
