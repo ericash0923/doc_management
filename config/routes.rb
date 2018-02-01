@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'search' => 'search#index'
   
   resources :documents
-  resources :topics
+  resources :topics, :only => [:index, :show]
   
   namespace :admin do
     resources :topics

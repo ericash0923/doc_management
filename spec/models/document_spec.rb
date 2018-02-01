@@ -21,9 +21,5 @@ RSpec.describe Document, type: :model do
     it 'belong to topic' do
       should belong_to(:topic)
     end
-    
-    it 'Need topic to exist' do
-      should validate_presence_of(:topic)
-    end
   end
 end
