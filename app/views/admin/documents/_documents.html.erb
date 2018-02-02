@@ -15,7 +15,7 @@
         <td><%= doc.topic.title %></td>
         <td><h5>
             <%= link_to fa_icon('pencil-square-o'), edit_admin_document_path(doc) %>
-            <%= link_to fa_icon('trash'), [:admin, doc], method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to fa_icon('trash'), [:admin, doc], method: :delete, id: "delete_document_#{doc.id}_from_index", data: { confirm: 'Are you sure?' } %>
         </h5></td>
       </tr>
     <% end %>
