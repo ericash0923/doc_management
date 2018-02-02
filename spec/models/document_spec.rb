@@ -13,6 +13,7 @@ RSpec.describe Document, type: :model do
     
     it 'cannot be created without a title' do
       @document.name = nil
+      @document.attachment = nil
       expect(@document).to_not be_valid
     end
   end

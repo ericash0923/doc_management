@@ -3,7 +3,7 @@ class Document < ApplicationRecord
   
   belongs_to :topic
   
-  validates_presence_of :name
+  validates_presence_of :name, :attachment
   
   def self.most_recent(limit)
     order("created_at desc").limit(limit)

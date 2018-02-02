@@ -1,5 +1,16 @@
 <%= form_for([:admin, @admin_document]) do |f| %>
-
+  <% if @admin_document.errors.any? %>
+    <div id="error_explanation" class= "alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4><%= pluralize(@admin_document.errors.count, "error") %> prohibited this Document from being saved:</h4>
+      <ul>
+      <% @admin_document.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <div class="field">
     <%= f.hidden_field :topic_id %>
   </div>
