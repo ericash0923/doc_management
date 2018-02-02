@@ -14,7 +14,7 @@
       <td><%= folder.parent ? folder.parent.title : '---' %></td>
       <td><h5><%= link_to fa_icon('file-text'), [:admin, folder] %> 
               <%= link_to fa_icon('pencil-square-o'), edit_admin_topic_path(folder) %>
-              <%= link_to fa_icon('trash'), [:admin, folder], method: :delete, data: { confirm: 'Are you sure?' } %></h5></td>
+              <%= link_to fa_icon('trash'), [:admin, folder], method: :delete, id: "delete_topic_#{folder.id}_from_index", data: { confirm: 'Are you sure?' } %></h5></td>
     </tr>
     <% end %>
   </tbody>
