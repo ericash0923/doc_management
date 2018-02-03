@@ -1,5 +1,4 @@
 document.addEventListener('turbolinks:load', function() {
-  console.log("working")
   $input = $("[data-behavior='autocomplete']")
 
   var options = {
