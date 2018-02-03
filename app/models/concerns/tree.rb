@@ -3,7 +3,6 @@ module Tree
   extend ActiveSupport::Concern
 
   included do
-    has_ancestry
     def name_for_selects
       "#{'|' if depth > 0}" + "#{'---' * depth} #{title}"
     end
