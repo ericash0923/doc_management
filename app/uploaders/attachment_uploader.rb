@@ -6,7 +6,7 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :aws
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -61,10 +61,9 @@ class AttachmentUploader < CarrierWave::Uploader::Base
     end
   end
   
+  protected
+  
   def imageable?(new_file)
-    # is_image = new_file.content_type.start_with? 'image'
-    is_pdf = new_file.content_type.end_with? 'pdf'
-    # is_image || 
-    is_pdf
+    new_file.content_type.end_with? 'pdf'
   end
 end

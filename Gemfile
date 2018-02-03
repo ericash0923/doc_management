@@ -49,3 +49,5 @@ gem 'rmagick'
 gem "font-awesome-rails"
 gem 'ransack', '~> 1.8', '>= 1.8.6'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
+gem 'carrierwave-aws', '~> 1.0'
+
