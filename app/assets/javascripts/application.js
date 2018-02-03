@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require jquery.easy-autocomplete.min
 //= require turbolinks
+//= require search
 //= require_tree .
