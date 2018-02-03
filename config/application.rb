@@ -22,5 +22,6 @@ module DocManagement
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.assets.precompile += %w(*.js)
+    config.secret_key_base = ENV["SECRET_KEY_BASE"]
   end
 end
