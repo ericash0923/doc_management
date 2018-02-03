@@ -24,7 +24,7 @@ class Admin::DocumentsController < Admin::AdminController
   
   def destroy
     @admin_document.destroy
-    redirect_to [:admin, @admin_topic], notice: "Your #{@admin_document.name} was deleted successfully"
+    redirect_to [:admin, @admin_document], notice: "Your #{@admin_document.name} was deleted successfully"
   end
   
   private
