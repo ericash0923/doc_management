@@ -45,7 +45,7 @@ gem 'ancestry', '~> 3.0', '>= 3.0.1'
 gem 'devise', '~> 4.4'
 gem 'bootstrap', '~> 4.0.0'
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
-gem 'rmagick'
+gem 'rmagick', :require => 'rmagick'
 gem "font-awesome-rails"
 gem 'ransack', '~> 1.8', '>= 1.8.6'
 gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
