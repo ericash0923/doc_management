@@ -21,17 +21,15 @@
       
       <%= render 'shared/admin_sidebar' %>
       
-      <br>
-      
-      <div class="container">
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>">
-            <%= value %>
-          </div>
-        <% end %>
-      </div>
-      
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        
+        <div class="container">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>">
+              <%= value %>
+            </div>
+          <% end %>
+        </div>
         
         <%= render partial: 'shared/admin_main', locals: { topic: @admin_topic } %>
       
