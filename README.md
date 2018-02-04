@@ -1,24 +1,18 @@
-# README
+# DevCamp Capstone Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Tree Structre
+ - Gem Ancestry
 
-Things you may want to cover:
+## Search feature
+ - Ransack gem
+ - Easy Autocomplete js
 
-* Ruby version
+## Uploader
+ - Carriewave - aws
+ - Rmagick - pdf convert to jpg
 
-* System dependencies
+## Admin
+ - Custom Built
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## UI
+ - Bootstrap v4
