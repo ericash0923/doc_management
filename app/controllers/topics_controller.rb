@@ -2,8 +2,8 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show]
   
   def index
-    @topics = Topic.roots
-    @recents = Document.most_recent(6)
+      @topics = Topic.roots
+      @recents = Document.most_recent(6)
   end
   
   def show
