@@ -42,7 +42,7 @@ class Admin::TopicsController < Admin::AdminController
     if @admin_topic.admin?
       @admin_topic.non_admin!
     elsif @admin_topic.non_admin?
-      @admin.admin!
+      @admin_topic.admin!
     end
       
     redirect_to admin_path, notice: "Folder status has been updated"
@@ -54,6 +54,6 @@ class Admin::TopicsController < Admin::AdminController
     end
 
     def admin_topic_params
-      params.require(:topic).permit(:title, :parent_id)
+      params.require(:topic).permit(:title, :parent_id, :status)
     end
 end
