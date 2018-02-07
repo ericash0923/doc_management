@@ -8,8 +8,13 @@ Rails.application.routes.draw do
   resources :topics, :only => [:index, :show]
   
   namespace :admin do
-    resources :topics
     resources :documents
+    
+    resources :topics do
+      member do
+        get :toggle_status
+      end
+    end
   end
   
   root to: 'topics#index'

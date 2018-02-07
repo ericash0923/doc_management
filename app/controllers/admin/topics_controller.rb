@@ -1,5 +1,5 @@
 class Admin::TopicsController < Admin::AdminController
-  before_action :set_admin_topic, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_topic, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   def index
     @admin_topics = Topic.arrange_as_array({:order => 'title'})
@@ -36,6 +36,16 @@ class Admin::TopicsController < Admin::AdminController
   def destroy
     @admin_topic.destroy
       redirect_to [:admin, @admin_topic], notice: 'Topic was successfully destroyed.' 
+  end
+  
+  def toggle_status
+    if @admin_topic.admin?
+      @admin_topic.non_admin!
+    elsif @admin_topic.non_admin?
+      @admin.admin!
+    end
+      
+    redirect_to admin_path, notice: "Folder status has been updated"
   end
 
   private
