@@ -12,7 +12,7 @@
     <tr>
       <td><%= folder.name_for_tree %></td>
       <td><%= folder.parent ? folder.parent.title : '---' %></td>
-      <td><h5><%= link_to folder.status, toggle_status_admin_topic_path(folder) %>
+      <td><h5><%= link_to fa_icon('eye'), toggle_status_admin_topic_path(folder), style: folder_status_color(folder) %>
               <%= link_to fa_icon('file-text'), [:admin, folder] %> 
               <%= link_to fa_icon('pencil-square-o'), edit_admin_topic_path(folder) %>
               <%= link_to fa_icon('trash'), [:admin, folder], method: :delete, id: "delete_topic_#{folder.id}_from_index", data: { confirm: 'Are you sure?' } %></h5></td>
